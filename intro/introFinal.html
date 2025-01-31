@@ -35,60 +35,44 @@
           <div id="root"></div>
           <script type="text/babel">
             function App() {
-              const products = {
-                toothbrush: {
+              const products = [
+                {
                   imageUrl:
                     'https://images.unsplash.com/photo-1520013573795-38516d2661e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1536&q=80',
                   title: '強力牙刷',
                   price: 99,
                   link: 'https://www.google.com.tw',
                 },
-                sponge: {
+                {
                   imageUrl:
                     'https://images.unsplash.com/photo-1618038483079-bfe64dcb17f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
                   title: '海綿',
                   price: 120,
                   link: 'https://twitter.com',
                 },
-                hook: {
+                {
                   imageUrl:
                     'https://images.unsplash.com/photo-1546552696-7d5f4e89b0e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
                   title: '掛鉤',
                   price: 99,
                   link: 'https://www.facebook.com',
                 },
-              };
+              ];
 
               return (
                 <>
                   <div className='row row-cols-3'>
-                    <div className='col'>
-                      <a href={products.toothbrush.link} target='_blank' className='card'>
-                        <img className='card-img-top object-fit' src={products.toothbrush.imageUrl} alt='' />
-                        <div className='card-body'>
-                          \<span className='text-dark'>{products.toothbrush.title}</span>
-                          <span className='float-end'>{products.toothbrush.price}</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div className='col'>
-                      <a href={products.sponge.link} target='_blank' className='card'>
-                        <img className='card-img-top object-fit' src={products.sponge.imageUrl} alt='' />
-                        <div className='card-body'>
-                          \<span className='text-dark'>{products.sponge.title}</span>
-                          <span className='float-end'>{products.sponge.price}</span>
-                        </div>
-                      </a>
-                    </div>
-                    <div className='col'>
-                      <a href={products.hook.link} target='_blank' className='card'>
-                        <img className='card-img-top object-fit' src={products.hook.imageUrl} alt='' />
-                        <div className='card-body'>
-                          \<span className='text-dark'>{products.hook.title}</span>
-                          <span className='float-end'>{products.hook.price}</span>
-                        </div>
-                      </a>
-                    </div>
+                    {products.map((product, index) => (
+                      <div className='col' key={index}>
+                        <a href={product.link} target='_blank' className='card'>
+                          <img className='card-img-top object-fit' src={product.imageUrl} alt='' />
+                          <div className='card-body'>
+                            \<span className='text-dark'>{product.title}</span>
+                            <span className='float-end'>{product.price}</span>
+                          </div>
+                        </a>
+                      </div>
+                    ))}
                   </div>
                 </>
               );
