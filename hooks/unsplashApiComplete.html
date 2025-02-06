@@ -10,7 +10,7 @@
   // 請使用自行申請的 API 來進行運作
   const { useState, useEffect, useRef } = React;
   const api = 'https://api.unsplash.com/search/photos/';
-  const accessKey = 'GAvxZ9VesndxTx_9NftqgOtZffnTB0YhfGiWGDJA-bs';
+  const accessKey = 'ykzhCs8qdzqsULXSUIZrWZcvr8GlYCg4HHF-cdAPlAA';
 
   const Loading = ({isLoading}) => {
     return (<div className="loading" style={{ display: isLoading ? 'flex' : 'none' }}>
@@ -19,7 +19,7 @@
       </div>
     </div>)
   }
-  
+
   const SearchBox = ({onSearchEnterHandler, filterString}) => {
     return <div>
       <label htmlFor="filter">搜尋</label>
@@ -39,7 +39,7 @@
       src={`${item.urls.raw}&w=600&q=80`} alt="" />
     </a>
   }
-    
+
   // #1 剩餘次數
   // #2 讀取效果
   // #3 展開的 Modal
@@ -131,7 +131,7 @@
         <SearchBox onSearchEnterHandler={onSearchEnter} filterString={filterString}></SearchBox>
         <p>剩餘請求次數：{remaining}</p>
         <div className='row row-cols-2 g-3' ref={listRef}>
-          { jsonData.map((item) => 
+          { jsonData.map((item) =>
             <div className="col" key={item.id}>
               <Card item={item} getSinglePhoto={getSinglePhoto} />
             </div>
@@ -172,110 +172,110 @@
 </style>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
-  
+
   <div class="list-group">
-  
+
     <a href="/hooks/startHooks.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       開始使用 Hook
     </a>
-  
+
     <a href="/hooks/inputUseState.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       input 綁定 useState
     </a>
-  
+
     <a href="/hooks/aboutUseState.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關於 useState
     </a>
-  
+
     <a href="/hooks/aboutUseState2.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關於 useState 2
     </a>
-  
+
     <a href="/hooks/inputComponent.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       input 元件化
     </a>
-  
+
     <a href="/hooks/useEffectIntro.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       useEffect 基礎介紹
     </a>
-  
+
     <a href="/hooks/useEffectLifeCycle.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       useEffect 生命週期及非同步
     </a>
-  
+
     <a href="/hooks/asyncList.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       非同步的列表呈現
     </a>
-  
+
     <a href="/hooks/useStateCallback.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       useState 的前一個狀態
     </a>
-  
+
     <a href="/hooks/bootstrapComponent.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       Bootstrap 元件與 React
     </a>
-  
+
     <a href="/hooks/useRef.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       useRef
     </a>
-  
+
     <a href="/hooks/useEffectRemoveListener.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       useEffect 移除監聽
     </a>
-  
+
     <a href="/hooks/unsplashApi.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       Unsplash API 挑戰
     </a>
-  
+
     <a href="/hooks/unsplashApiComplete.html"
       class="list-group-item list-group-item-action
-        
+
         active">
       Unsplash API 完成
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2022/10/31</small>
@@ -283,7 +283,7 @@
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
