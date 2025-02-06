@@ -52,26 +52,54 @@
             const App = () => {
               console.log(1);
               const [filterString, setFilterString] = useState('animal');
-
+              const [text, setText] = useState('animal');
               const onSearchHandler = (e) => {
                 setFilterString(e.target.value);
               };
 
               // #1 useEffect 的觸發時間點
               // 當都不加入任何條件時
-
-              // 只有加入一個空陣列
-
+              // useEffect(() => {
+              //   console.log('3');
+              // }); // 每次更新資料狀態時都會執行一次
+              // 只有加入一個空陣列，只有在第一次 render 時執行
+              // useEffect(() => {
+              //   console.log('3');
+              // }, []);
               // 加入 state 作為條件
+              // useEffect(() => {
+              //   console.log('3');
+              // }, [filterString, text]); //只有在 filterString 或 text 更新時才會執行
 
               // #2 useEffect 的限制，不可在 if 內使用
-
+              // if (filterString === 'animal') {
+              //   useEffect(() => {
+              //     console.log('3');
+              //   }, [filterString]);
+              // }
               // #3 非同步
               // useEffect callback 本身不能作為 async function 使用
-
+              // const getPhotos = async () => {
+              //   // 建立非同步方法
+              //   const response = await axios.get(`${api}?client_id=${accessKey}&query=${filterString}`); // 發送請求
+              //   console.log(response);
+              // };
+              useEffect(() => {
+                try {
+                  const getPhotos = async () => {
+                    // 建立非同步方法
+                    const response = await axios.get(`${api}?client_id=${accessKey}&query=${filterString}`); // 發送請求
+                    console.log(response);
+                  };
+                  getPhotos();
+                } catch (error) {
+                  console.log(error);
+                }
+              }, []);
               return (
                 <div>
                   {console.log(2)}
+                  <input type='text' onChange={(e) => setText(e.target.value)} />
                   <SearchBox onSearchHandler={onSearchHandler} filterString={filterString} />
                 </div>
               );
